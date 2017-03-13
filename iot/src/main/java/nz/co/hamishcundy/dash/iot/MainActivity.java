@@ -14,11 +14,13 @@
  * limitations under the License.
  */
 
-package com.example.androidthings.myproject;
+package nz.co.hamishcundy.dash.iot;
 
 import android.app.Activity;
 import android.os.Bundle;
 import android.util.Log;
+
+import nz.co.hamishcundy.dash.myproject.R;
 
 /**
  * Skeleton of the main Android Things activity. Implement your device's logic
@@ -45,6 +47,7 @@ public class MainActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
         Log.d(TAG, "onCreate");
     }
 
