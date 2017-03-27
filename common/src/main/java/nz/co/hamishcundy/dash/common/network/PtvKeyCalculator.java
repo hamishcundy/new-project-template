@@ -15,16 +15,17 @@ import retrofit2.Retrofit;
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
 
+import static nz.co.hamishcundy.dash.common.network.PtvApiConstants.BASE_URL;
+import static nz.co.hamishcundy.dash.common.network.PtvApiConstants.DEVELOPER_ID;
+import static nz.co.hamishcundy.dash.common.network.PtvApiConstants.DEVELOPER_KEY;
+
 /**
  * Created by hamish on 16/03/17.
  */
 
 public class PtvKeyCalculator {
 
-    public static final String DEVELOPER_KEY = "f9032392-81a9-446d-894a-18f50d712f29";
-    public static final int DEVELOPER_ID = 3000164;
 
-    public static final String BASE_URL = "http://timetableapi.ptv.vic.gov.au";
 
     public static PtvApi getApi(){
         HttpLoggingInterceptor interceptor = new HttpLoggingInterceptor();
@@ -48,7 +49,7 @@ public class PtvKeyCalculator {
 
         Retrofit retrofit = new Retrofit.Builder()
                 .client(client)
-                .baseUrl(PtvKeyCalculator.BASE_URL)
+                .baseUrl(BASE_URL)
                 .addConverterFactory(GsonConverterFactory.create())
                 .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
                 .build();

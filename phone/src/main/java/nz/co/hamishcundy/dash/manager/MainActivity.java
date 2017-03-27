@@ -2,6 +2,7 @@ package nz.co.hamishcundy.dash.manager;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 
 import nz.co.hamishcundy.dash.common.network.PtvApi;
 import nz.co.hamishcundy.dash.common.network.PtvKeyCalculator;
@@ -22,12 +23,12 @@ public class MainActivity extends AppCompatActivity {
         api.getDisruptions().enqueue(new Callback<DisruptionResponse>() {
             @Override
             public void onResponse(Call<DisruptionResponse> call, Response<DisruptionResponse> response) {
-
+                Log.d("MainAc", "Response");
             }
 
             @Override
             public void onFailure(Call<DisruptionResponse> call, Throwable t) {
-
+                Log.d("MainAc", "Failure");
             }
         });
     }
