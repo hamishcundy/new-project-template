@@ -24,9 +24,13 @@ public class Disruption {
 
     public List<DisruptionRoute> routes;
 
-    public boolean isGreaterThanOneDay(){
-        SimpleDateFormat fmt = new SimpleDateFormat("yyyyMMdd");
-        return !fmt.format(fromDate).equals(fmt.format(toDate));
+    public boolean isLessThanDays(int days){
+        long diff = toDate.getTime() - fromDate.getTime();
+        long diffDays = diff / (24 * 60 * 60 * 1000);
+        if(days > diffDays){
+            return true;
+        }
+        return false;
 
     }
 
