@@ -24,16 +24,18 @@ import nz.co.hamishcundy.dash.common.model.Disruption;
 public class DisruptionDisplayAdapter extends RecyclerView.Adapter<DisruptionDisplayAdapter.DisruptionViewHolder> {
 
     private final Context con;
+    private final int layout;
     private List<Disruption> disruptionList;
 
-    public DisruptionDisplayAdapter(Context con, List<Disruption> disruptions) {
+    public DisruptionDisplayAdapter(Context con, List<Disruption> disruptions, int childLayout) {
         this.disruptionList = disruptions;
         this.con = con;
+        this.layout = childLayout;
     }
 
     @Override
     public DisruptionViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        return new DisruptionViewHolder(LayoutInflater.from(con).inflate(R.layout.list_item_disruption_light, parent, false));
+        return new DisruptionViewHolder(LayoutInflater.from(con).inflate(layout, parent, false));
     }
 
     @Override
@@ -49,6 +51,7 @@ public class DisruptionDisplayAdapter extends RecyclerView.Adapter<DisruptionDis
     public class DisruptionViewHolder extends RecyclerView.ViewHolder{
 
         public TextView disruptionTitle;
+
         public TextView disruptionDescription;
 
         public DisruptionViewHolder(View itemView) {

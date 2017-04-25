@@ -23,15 +23,15 @@ public class Disruptions {
     public List<Disruption> getAllFilteredDisruptions(){
         List<Disruption> disruptions = new ArrayList<Disruption>();
 
-        disruptions.addAll(getFilteredDisruptions(generalDisruptions));
-        disruptions.addAll(getFilteredDisruptions(tramDisruptions));
+        disruptions.addAll(getFilteredDisruptions(generalDisruptions, false));
+        disruptions.addAll(getFilteredDisruptions(tramDisruptions, true));
         return disruptions;
     }
 
-    private Collection<? extends Disruption> getFilteredDisruptions(List<Disruption> unfiltered) {
+    private Collection<? extends Disruption> getFilteredDisruptions(List<Disruption> unfiltered, boolean routeFilter) {
         List<Disruption> disruptions = new ArrayList<Disruption>();
         for(Disruption d:unfiltered){
-            if(d.isLessThanDays(PtvApiConstants.MAX_DISRUPTION_DAYS) && d.affectsRoutes(PtvApiConstants.MY_ROUTES)){
+            if(d.isLessThanDays(PtvApiConstants.MAX_DISRUPTION_DAYS) && (!routeFilter || d.affectsRoutes(PtvApiConstants.MY_ROUTES))){
                 disruptions.add(d);
             }
         }

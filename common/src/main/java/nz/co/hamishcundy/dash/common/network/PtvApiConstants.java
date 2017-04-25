@@ -12,5 +12,5 @@ public class PtvApiConstants {
     public static final String BASE_URL = "http://timetableapi.ptv.vic.gov.au";
 
     public static final String[] MY_ROUTES = new String[]{"3-3a", "5", "16", "64", "67", "55", "11", "48", "96"};
-    public static final int MAX_DISRUPTION_DAYS = 5;//dont care about long term disruptions
+    public static final int MAX_DISRUPTION_DAYS = 14;//dont care about long term disruptions
 }

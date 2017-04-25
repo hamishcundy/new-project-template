@@ -25,6 +25,9 @@ public class Disruption {
     public List<DisruptionRoute> routes;
 
     public boolean isLessThanDays(int days){
+        if(toDate == null || fromDate == null){
+            return true;
+        }
         long diff = toDate.getTime() - fromDate.getTime();
         long diffDays = diff / (24 * 60 * 60 * 1000);
         if(days > diffDays){
@@ -35,6 +38,9 @@ public class Disruption {
     }
 
     public boolean affectsRoutes(String[] routeNumbers){
+        if(routes.size() == 0){//no route specified
+            return true;
+        }
         for(DisruptionRoute route:routes){
             if(route.inArray(routeNumbers)){
                 return true;
